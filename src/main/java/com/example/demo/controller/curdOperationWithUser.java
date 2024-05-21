@@ -11,21 +11,28 @@ import com.example.demo.services.crudOperationService;
 @RestController
 @CrossOrigin
 public class curdOperationWithUser {
-	
+
 	@Autowired
 	public crudOperationService service;
-	
+
 	@GetMapping("/api/addUser")
 	public String addUser(userInfo user) {
 		service.addUser(user);
-		
-		return"saved";
+
+		return "saved";
 	}
+
 	@GetMapping("/api/login")
 	public String checkUser(userInfo user) {
-		String ret =service.checkUser(user);
-		
+		String ret = service.checkUser(user);
+
 		return ret;
+	}
+
+	@GetMapping("/api/testing")
+	public String testing() {
+
+		return "test successfull";
 	}
 
 }
